@@ -3,7 +3,10 @@
 var learnerLogCtrl = angular.module('learnerLogCtrl', []);
 
 //controller for creating a new log
-learnerLogCtrl.controller('newLogCtrl', ['$scope','$routeParams',function($scope, $routeParams){
+learnerLogCtrl.controller('newLogCtrl', ['$scope','$http','$routeParams',function($scope, $http, $routeParams){
+	$http.get('../../../data/tempdata.json').success(function(data){
+		console.log(data);
+	});
 	$scope.testvars = ['var1','var2'];
 	$scope.gpsStatus = ['initialising','ready'];
 	console.log("controller: newLogCtrl");
