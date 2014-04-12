@@ -17,10 +17,10 @@ learnerLogCtrl.controller('newLogCtrl', ['$scope', '$http', '$routeParams',funct
 	}
 }]);
 
-learnerLogCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http', '$routeParams',function($scope, $rootScope, $http, $routeParams){
+learnerLogCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http', '$routeParams', 'GetAllLogDataJsonService', function($scope, $rootScope, $http, $routeParams, GetAllLogDataJsonService){
 	$scope.testvarshome = ['var3','var4'];
 	console.log("controller: homeCtrl");
-	$http.get('../../../data/tempdata.json').success(function(data){
+	GetAllLogDataJsonService.query(function(data){
 		console.log(data);
 		$rootScope.logData = data;
 	});

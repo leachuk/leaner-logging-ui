@@ -6,7 +6,8 @@ var learnerLoggingUi2App = angular.module('learnerLoggingUi2App', [
   'ngSanitize',
   'ngRoute',
   'ngAnimate',
-  'learnerLogCtrl'
+  'learnerLogCtrl',
+  'getAllLogDataJsonService'
 ]);
 
 learnerLoggingUi2App.run(function($rootScope, $window) {
