@@ -37,7 +37,7 @@ learnerLoggingUi2App.config(function ($routeProvider) {
 		controller: 'newLogCtrl',
 		depth:2
 	}),
-	$routeProvider.when('/logdetail',{
+	$routeProvider.when('/logdetail/:logid',{
 		templateUrl: 'views/logdetail.html',
 		controller: 'logDetailCtrl',
 		depth:2
