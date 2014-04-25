@@ -6,6 +6,8 @@ var learnerLoggingUi2App = angular.module('learnerLoggingUi2App', [
   'ngSanitize',
   'ngRoute',
   'ngAnimate',
+  'ui.map',
+  'ui.event',
   'learnerLogCtrl',
   'getAllLogDataJsonService'
 ]);
@@ -51,3 +53,7 @@ learnerLoggingUi2App.config(function ($routeProvider) {
      });;
 });
 
+function initMapCallback() {
+  console.log('Google maps api initialized.');
+  angular.bootstrap(document, ['learnerLoggingUi2App']);
+}
