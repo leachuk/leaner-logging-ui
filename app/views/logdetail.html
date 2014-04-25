@@ -6,8 +6,10 @@
 
 <section id="map">
 	<div id="map_canvas" ui-map="myMap" 
-	style="height:300px;width:400px;border:2px solid #777777;margin:3px; border:1px solid" 
+	style="height:200px;width:295px;border:2px solid #777777;margin:3px; border:1px solid" 
 	ui-options="mapOptions" 
-	ui-event="{'map-idle' : 'onMapIdle()'}">
+	ui-event="{'map-tilesloaded' : 'onMapIdle()'}">
 	</div>
+	<div ui-map-marker="myMarkers"></div>
+	<div ui-map-polyline="logPath"></div>
 </section>
