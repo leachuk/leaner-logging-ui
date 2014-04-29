@@ -1,4 +1,16 @@
 <h2>new log</h2>
+<form>
+  <input type="text" placeholder="Title">
+  <input type="date" placeholder="Date">
+</form>
 <div>GPS Status [{{gpsStatus[0]}}]</div>
+<section id="map">
+	<div id="map_canvas" ui-map="myMap" 
+	style="height:200px;width:295px;border:2px solid #777777;margin:3px; border:1px solid" 
+	ui-options="mapOptions" 
+	ui-event="{'map-tilesloaded' : 'onMapIdle()'}">
+	</div>
+	<div ui-map-marker="myMarkers"></div>
+</section>
 <div><button ng-click="startGpsRecord()">Start</button></div>
 <div><button ng-click="stopGpsRecord()">Stop</button></div>

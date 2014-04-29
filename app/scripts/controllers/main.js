@@ -6,6 +6,7 @@ var learnerLogCtrl = angular.module('learnerLogCtrl', []);
 learnerLogCtrl.controller('newLogCtrl', ['$scope', '$http', '$routeParams',function($scope, $http, $routeParams){
 	$scope.testvars = ['var1','var2'];
 	$scope.gpsStatus = ['initialising','ready'];
+	var runOnceSet = false;
 	console.log("controller: newLogCtrl");
 	
 	$scope.startGpsRecord = function(){
@@ -15,6 +16,24 @@ learnerLogCtrl.controller('newLogCtrl', ['$scope', '$http', '$routeParams',funct
 	$scope.stopGpsRecord = function(){
 		console.log("stopGpsRecord clicked");
 	}
+	
+	$scope.mapOptions = {
+      center: new google.maps.LatLng(-33.8738362136655, 151.18457794189453),
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+  	$scope.onMapIdle = function() {
+        if (runOnceSet === false){
+            new google.maps.Marker({
+                map: $scope.myMap,
+                position: new google.maps.LatLng(-33.8738362136655, 151.18457794189453)
+            });    
+       
+			runOnceSet = true;
+			console.log("run once idle");
+        }  
+    };
 }]);
 
 learnerLogCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http', '$routeParams', 'GetAllLogDataJsonService', function($scope, $rootScope, $http, $routeParams, GetAllLogDataJsonService){
@@ -27,21 +46,16 @@ learnerLogCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http', '$routeP
 }]);
 
 learnerLogCtrl.controller('logDetailCtrl', ['$scope', '$rootScope', '$routeParams', '$filter',function($scope, $rootScope, $routeParams, $filter){
-	$scope.testvarslogdetail = ['detailvar1','detailvar2'];
-	$scope.logItemId = $routeParams.logid;
-	var itemData = $filter('filter')($rootScope.logData, {id: $routeParams.logid});
+	console.log("controller: logDetailCtrl");
 	var runOnceSet = false;
+	var itemData = $filter('filter')($rootScope.logData, {id: $routeParams.logid});
 	$scope.logItemData = itemData[0];
 	$scope.mapOptions = {
       center: new google.maps.LatLng(-33.8738362136655, 151.18457794189453),
       zoom: 12,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    console.log("controller: logDetailCtrl");
-    //console.log(itemData.coords);
-	//console.log($routeParams);
-	//console.log($rootScope.logData);
-	//console.log(itemData);
+
     var mapPolyLine = [];
     for (var i=0; i < itemData[0].coords.length; i++){
     	var lat = itemData[0].coords[i].lat;
@@ -56,7 +70,7 @@ learnerLogCtrl.controller('logDetailCtrl', ['$scope', '$rootScope', '$routeParam
                 map: $scope.myMap,
                 position: new google.maps.LatLng(-33.8738362136655, 151.18457794189453)
             });    
-       
+       		//try delay of line display (or create) to prevent slowdown on swipe animation
         	new google.maps.Polyline({
 				map: $scope.myMap,
 				path: mapPolyLine,
@@ -65,6 +79,7 @@ learnerLogCtrl.controller('logDetailCtrl', ['$scope', '$rootScope', '$routeParam
 				strokeOpacity: 1.0,
 				strokeWeight: 2
 			});
+			
 			runOnceSet = true;
 			console.log("run once idle");
         }  

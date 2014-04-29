@@ -1,9 +1,22 @@
-<h2>log detail</h2>
+<h2>{{logItemData.title}}</h2>
 
-<div>Log detail [{{testvarslogdetail}}]</div>
-<div>item detail [{{logItemId}}]</div>
-<div>map data: [{{mapOptions}}]</div>
-
+<form class="input-group">
+  <div class="input-row">
+    <label>Distance</label>
+    <input type="text" placeholder="51 km">
+  </div>
+  <div class="input-row">
+    <label>Time taken</label>
+    <input type="text" placeholder="35 minutes">
+  </div>
+  <div class="input-row">
+    <label>Recorded on</label>
+    <input type="text" placeholder="27/07/2014">
+  </div>
+</form>
+<div class="content-padded">
+	<p>Log start time: *todo*, end time: *todo*</p> 
+</div>
 <section id="map">
 	<div id="map_canvas" ui-map="myMap" 
 	style="height:200px;width:295px;border:2px solid #777777;margin:3px; border:1px solid" 
