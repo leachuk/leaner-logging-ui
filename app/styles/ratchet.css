@@ -1,14 +1,14 @@
 /*!
  * =====================================================
- * Ratchet v2.0.1 (http://goratchet.com)
+ * Ratchet v2.0.2 (http://goratchet.com)
  * Copyright 2014 Connor Sears
- * Licensed under MIT.
+ * Licensed under MIT (https://github.com/twbs/ratchet/blob/master/LICENSE)
  *
- * v2.0.1 designed by @connors.
+ * v2.0.2 designed by @connors.
  * =====================================================
  */
 
-/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -494,6 +494,9 @@ input[type="button"] {
   padding-left: 10px;
   background-color: white;
   border-bottom: 1px solid #ddd;
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 .bar-header-secondary {
@@ -765,7 +768,6 @@ input[type="button"] {
 .table-view .media,
 .table-view .media-body {
   overflow: hidden;
-  zoom: 1;
 }
 
 .table-view .media-object.pull-left {
@@ -896,11 +898,8 @@ select {
           box-shadow: none;
 }
 
-.input-group input:last-child {
-  border-bottom: 0;
-}
-
 .input-row {
+  height: 35px;
   overflow: hidden;
   border-bottom: 1px solid #ddd;
 }
@@ -908,7 +907,7 @@ select {
 .input-row label {
   float: left;
   width: 35%;
-  padding: 10px 15px;
+  padding: 8px 15px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   line-height: 1.1;
 }
@@ -1274,10 +1273,6 @@ select {
   -webkit-font-smoothing: antialiased;
 }
 
-.icon-and-up:before {
-  content: '\e809';
-}
-
 .icon-back:before {
   content: '\e80a';
 }
@@ -1306,14 +1301,6 @@ select {
   content: '\e813';
 }
 
-.icon-down-nav:before {
-  content: '\e814';
-}
-
-.icon-down:before {
-  content: '\e820';
-}
-
 .icon-download:before {
   content: '\e815';
 }
@@ -1336,14 +1323,6 @@ select {
 
 .icon-info:before {
   content: '\e82c';
-}
-
-.icon-left-nav:before {
-  content: '\e82d';
-}
-
-.icon-left:before {
-  content: '\e822';
 }
 
 .icon-list:before {
@@ -1380,14 +1359,6 @@ select {
 
 .icon-refresh:before {
   content: '\e825';
-}
-
-.icon-right-nav:before {
-  content: '\e818';
-}
-
-.icon-right:before {
-  content: '\e826';
 }
 
 .icon-search:before {
@@ -1436,4 +1407,28 @@ select {
 
 .icon-up:before {
   content: '\e80d';
+}
+
+.icon-right-nav:before {
+  content: '\e818';
+}
+
+.icon-right:before {
+  content: '\e826';
+}
+
+.icon-down-nav:before {
+  content: '\e814';
+}
+
+.icon-down:before {
+  content: '\e820';
+}
+
+.icon-left-nav:before {
+  content: '\e82d';
+}
+
+.icon-left:before {
+  content: '\e822';
 }

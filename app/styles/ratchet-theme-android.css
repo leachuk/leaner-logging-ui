@@ -1,10 +1,10 @@
 /*!
  * =====================================================
- * Ratchet v2.0.1 (http://goratchet.com)
+ * Ratchet v2.0.2 (http://goratchet.com)
  * Copyright 2014 Connor Sears
- * Licensed under MIT.
+ * Licensed under MIT (https://github.com/twbs/ratchet/blob/master/LICENSE)
  *
- * v2.0.1 designed by @connors.
+ * v2.0.2 designed by @connors.
  * =====================================================
  */
 
@@ -317,6 +317,7 @@ a:active {
   background-image: none;
 }
 .table-view .table-view-cell > a:not(.btn):active {
+  color: inherit;
   background-color: #e0e0e0;
 }
 .table-view .table-view-cell > a:not(.btn):active .icon {
@@ -330,6 +331,33 @@ a:active {
   background-color: transparent;
   border-top: 0;
   border-bottom: 2px solid #a9a9a9;
+}
+
+.table-view-cell .navigate-left > .btn,
+.table-view-cell .navigate-left > .badge,
+.table-view-cell .navigate-left > .toggle,
+.table-view-cell .navigate-right > .btn,
+.table-view-cell .navigate-right > .badge,
+.table-view-cell .navigate-right > .toggle,
+.table-view-cell .push-left > .btn,
+.table-view-cell .push-left > .badge,
+.table-view-cell .push-left > .toggle,
+.table-view-cell .push-right > .btn,
+.table-view-cell .push-right > .badge,
+.table-view-cell .push-right > .toggle,
+.table-view-cell > a .navigate-left > .btn,
+.table-view-cell > a .navigate-left > .badge,
+.table-view-cell > a .navigate-left > .toggle,
+.table-view-cell > a .navigate-right > .btn,
+.table-view-cell > a .navigate-right > .badge,
+.table-view-cell > a .navigate-right > .toggle,
+.table-view-cell > a .push-left > .btn,
+.table-view-cell > a .push-left > .badge,
+.table-view-cell > a .push-left > .toggle,
+.table-view-cell > a .push-right > .btn,
+.table-view-cell > a .push-right > .badge,
+.table-view-cell > a .push-right > .toggle {
+  right: 15px;
 }
 
 select,
@@ -383,7 +411,13 @@ textarea,
 }
 
 .input-row {
+  height: 40px;
   border-bottom: 1px solid #d9d9d9;
+}
+
+.input-row label {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .input-row label + input {
